@@ -6,16 +6,17 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
-    const res = await axios.get("https://todo-list-app-fmd8.onrender.com");
+    const res = await axios.get("https://todo-list-app-fmd8.onrender.com/api/todos");
     setTodos(res.data);
   };
-
+  
   const addTodo = async () => {
     if (!task.trim()) return;
-    await axios.post("https://todo-list-app-fmd8.onrender.com", { task });
+    await axios.post("https://todo-list-app-fmd8.onrender.com/api/todos", { task });
     setTask("");
     fetchTodos();
   };
+  
 
   useEffect(() => {
     fetchTodos();
