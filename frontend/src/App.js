@@ -6,13 +6,13 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
-    const res = await axios.get("http://localhost:5000/api/todos");
+    const res = await axios.get("https://todo-list-app-fmd8.onrender.com");
     setTodos(res.data);
   };
 
   const addTodo = async () => {
     if (!task.trim()) return;
-    await axios.post("http://localhost:5000/api/todos", { task });
+    await axios.post("https://todo-list-app-fmd8.onrender.com", { task });
     setTask("");
     fetchTodos();
   };
